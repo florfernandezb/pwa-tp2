@@ -18,13 +18,14 @@ if (!navigator.onLine) {
 }
 
 function traerContenido(){
-  fetch("https://www.scorebat.com/video-api/v1/")
+  fetch("http://www.omdbapi.com/?apikey=586d3e4&t=thor")
   .then(function(response){
-    console.log(response);
-
+    // console.log(response);
+    console.log("antes del .json ", response)
     return response.json();
   }).then(function(responseJson){
     printResultados(responseJson)
+    console.log("despues del .json ", responseJson)
   })
   .catch(function(error){
     console.log('Fallo!');
