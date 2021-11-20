@@ -1,6 +1,6 @@
 class ApiCall {
   getApiResponse(movie) {
-    fetch(`http://www.omdbapi.com/?apikey=${OMDB_API_KEY}&t=${movie}`)
+    fetch(`https://www.omdbapi.com/?apikey=${OMDB_API_KEY}&t=${movie}`)
       .then(function (data) {
         return data.json();
       })
