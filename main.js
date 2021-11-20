@@ -1,10 +1,13 @@
-// import getApiResponse from './services/apiCall'
+// import getMovie from './services/apiCall'
 const input = document.getElementById("input-search");
 const container = new Container()
 
-function init() {
+async function init() {
   registerServiceWorker();
-  container.upcomings.test();
+
+  let response = await container.init()
+  console.log("init response", response)
+  
 }
 
 input.addEventListener("keyup", function (event) {
@@ -17,7 +20,7 @@ input.addEventListener("keyup", function (event) {
 function getPelicula() {
   if (input.value != "") {
     // validateError();
-    container.apiCall.getApiResponse(input.value);
+    container.apiCall.getMovie(input.value);
     container.apiCall.getUpcomings();
   } else {
     console.log("error");
