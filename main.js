@@ -1,6 +1,7 @@
-// import getMovie from './services/apiCall'
 const input = document.getElementById("input-search");
 const container = new Container()
+
+init()
 
 async function init() {
   registerServiceWorker();

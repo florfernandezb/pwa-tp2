@@ -69,19 +69,14 @@
   <script>
     window.jQuery || document.write('<script src="../../../../assets/js/vendor/jquery-slim.min.js"><\/script>')
   </script>
-  <script src="/js/bootstrap.min.js"></script>
-  <script src="js/register-sw.js"></script>
+  <script src="js/bootstrap.min.js"></script>
+  <script src="serviceWorker/register-sw.js"></script>
   <script src="services/apiConstants.js"></script>
   <script src="services/ApiCall.js"></script>
   <script src="classes/Upcomings.js"></script>
-  <script src="container.js"></script>
+  <script src="initializer/container.js"></script>
   
-  <script src="main.js"></script>
-  <script>
-    window.onload = function() {
-				init()
-			}
-  </script>
+  <script src="main.js" type="module"></script>
 </body>
 
 </html>
