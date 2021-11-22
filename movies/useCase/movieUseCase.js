@@ -1,12 +1,10 @@
-import { MovieRepository } from "../data/repository/movieRepository.js";
-
 export class MovieUseCase {
 
     constructor(repository) {
-        this.repository = new MovieRepository();
+        this.repository = repository;
     }
 
     async invoke(movie) {
-        return await this.repository.getMovies(movie)
+        return await this.repository.getMovies(movie);
     }
 }

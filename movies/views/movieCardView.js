@@ -1,4 +1,3 @@
-import { Movie } from "../../classes/Movie.js"
 export class MovieCardView {
     constructor(image, image_description, title, synopsis, scroe, link) {
         this.image = image;
@@ -10,7 +9,6 @@ export class MovieCardView {
     }
 
     div = document.createElement('div')
-
 
     createMovieCard(movie) {
         let container = document.getElementById('movie-container')
@@ -59,6 +57,4 @@ export class MovieCardView {
 
         return button;
     }
-
-
 }

@@ -1,8 +1,6 @@
-import { UpcomingsApiCall } from "../../framework/requestManager/upcomingsApiCall.js";
-
 export class GetUpcomingsDataSource{
-    constructor() {
-        this.upcomingsApi = new UpcomingsApiCall()
+    constructor(upcomingsApiCall) {
+        this.upcomingsApi = upcomingsApiCall;
     }
 
     async getUpcomingsResponse() {

@@ -1,19 +1,18 @@
-
-// import { registerServiceWorker } from "./serviceWorker/registerServiceWorker.js";
-import { Container } from "./container.js";
+import { UpcomingsContainer } from "./upcomings/upcomingsContainer.js";
+import { MoviesContainer } from "./movies/moviesContainer.js";
 
 const input = document.getElementById("input-search");
 const searchButton = document.getElementById("button-search")
-// const upcoming = new UpcomingsUseCase()
-// const movie = new MovieUseCase()
-const container = new Container()
+
+const upcomingsContainer = new UpcomingsContainer();
+const moviesContainer = new MoviesContainer();
 
 init()
 
 async function init() {
   registerServiceWorker();
 
-  let response = await container.getUpcomings()
+  let response = await upcomingsContainer.getUpcomings()
   console.log("init response", response)
 
 }
@@ -42,10 +41,10 @@ searchButton.addEventListener("click", function (event) {
 async function getPelicula() {
   if (input.value != "") {
     // validateError();
-    let response = await container.movie.invoke(input.value)
-    let movie = container.createMovieDto(response);
-  
-    container.getMovieCardView(movie)
+    let response = await moviesContainer.movie.invoke(input.value)
+    let movie = moviesContainer.createMovieDto(response);
+
+    moviesContainer.getMovieCardView(movie)
   } else {
     console.log("error");
     // validateError();

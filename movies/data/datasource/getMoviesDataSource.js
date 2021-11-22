@@ -1,8 +1,6 @@
-import { OmdbApiCall } from "../../requestManager/omdbApiCall.js";
-
 export class GetMoviesDataSource {
-    constructor() {
-        this.moviesApiCall = new OmdbApiCall()
+    constructor(apiCall) {
+        this.moviesApiCall = apiCall;
     }
 
     async getMoviesResponse(movie) {

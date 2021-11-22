@@ -1,4 +1,4 @@
-export class Movie {
+export class MovieDto {
     constructor(title, year, poster, actors, country, director, genre, language, plot, runtime, score, id) {
         this.title = title
         this.year = year

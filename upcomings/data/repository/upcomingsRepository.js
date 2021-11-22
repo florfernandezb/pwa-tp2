@@ -1,8 +1,6 @@
-import { GetUpcomingsDataSource } from "../dataSource/getUpcomingsDataSource.js";
-
 export class UpcomingsRepository {
     constructor(dataSource) {
-        this.dataSource = new GetUpcomingsDataSource()
+        this.dataSource = dataSource;
     }
 
     getUpcomings() {
