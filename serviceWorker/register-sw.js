@@ -1,6 +1,6 @@
 function registerServiceWorker() {
   if ('serviceWorker' in navigator){
-    navigator.serviceWorker.register("../service-worker.js").then((message) => {
+    navigator.serviceWorker.register("../serviceWorker.js").then((message) => {
       console.log("Service Worker esta listo!");
     });
   } else {

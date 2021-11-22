@@ -5,3 +5,11 @@
 #navbar-top.online {
   background-color: green !important;
 }
+
+.card {
+  width: 18rem;
+}
+
+.card div {
+  padding: 1em;
+}
