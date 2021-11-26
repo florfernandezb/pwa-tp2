@@ -1,4 +1,4 @@
-import { UpcomingsContainer } from "./upcomings/upcomingsContainer.js";
+// import { UpcomingsContainer } from "./upcomings/upcomingsContainer.js";
 import { MoviesContainer } from "./movies/moviesContainer.js";
 
 const input = document.getElementById("input-search");
@@ -6,18 +6,18 @@ const searchButton = document.getElementById("button-search");
 let spinner = document.querySelector(".spinner");
 let network = document.getElementById("status");
 
-const upcomingsContainer = new UpcomingsContainer();
+// const upcomingsContainer = new UpcomingsContainer();
 const moviesContainer = new MoviesContainer();
 
 init()
 
+/**
+ * Init the application
+ */
 async function init() {
   moviesContainer.favourites.init();
 
   registerServiceWorker();
-
-  let response = await upcomingsContainer.getUpcomings();
-  console.log("init response", response);
 
 }
 

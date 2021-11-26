@@ -21,23 +21,4 @@ window.onload = async function () {
   }) : document.querySelector('#emptyState').textContent = "No hay películas agregadas a favoritas"
 }
 
-// document.getElementById('show-favourites').addEventListener('click', async () => {
-//   let res = await moviesContainer.getFAvourites()
-//   res.forEach(res => {
-//     console.log(res);
-//     moviesContainer.setMovieCardView(res.movie, "favourites-container");
-//   });
-// });
-
-// document.querySelector('.delete').addEventListener('click', function(e) {
-//   console.log(e.target.id)
-// })
-
-
-// for (let btn of document.querySelectorAll('.delete')) {
-//   btn.addEventListener("click", function (e) {
-//     console.log(e.target.id);
-//     moviesContainer.deleteElement(e.target.id);
-//   })
-// };
 
