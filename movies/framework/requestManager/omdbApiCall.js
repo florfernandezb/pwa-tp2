@@ -5,6 +5,7 @@ export class OmdbApiCall {
     let response = await
     fetch(getOmdbPath(movie))
       .then(function (data) {
+        console.log("data fetch", data)
         return data.json();
       })
       .then(function (data) {
