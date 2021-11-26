@@ -3,7 +3,7 @@
   "short_name": "STDB",
   "theme_color": "#CDB4DB",
   "background_color": "#BDE0FE",
-  "display": "browser",
+  "display": "standalone",
   "orientation": "any",
   "scope": "/",
   "start_url": "../index.html",
@@ -44,7 +44,7 @@
       "type": "image/png"
     },
     {
-      "src": "res/icons/icon-512x512.png",
+      "src": "../res/icons/icon-512x512.png",
       "sizes": "512x512",
       "type": "image/png"
     }
