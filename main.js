@@ -10,6 +10,8 @@ const moviesContainer = new MoviesContainer();
 init()
 
 async function init() {
+  moviesContainer.favourites.init();
+
   registerServiceWorker();
 
   let response = await upcomingsContainer.getUpcomings()
@@ -41,13 +43,30 @@ searchButton.addEventListener("click", function (event) {
 async function getPelicula() {
   if (input.value != "") {
     // validateError();
-    let response = await moviesContainer.movie.invoke(input.value)
-    let movie = moviesContainer.createMovieDto(response);
-
-    moviesContainer.getMovieCardView(movie)
+    moviesContainer.cleanScreen();
+    let movie = await moviesContainer.getMovies(input.value);
+    moviesContainer.setMovieCardView(movie, "movie-container");
+    input.value = "";
   } else {
     console.log("error");
     // validateError();
     // showError("Please enter a city");
   }
+
 }
+
+for (let btn of document.querySelectorAll('.favourite')) {
+  btn.addEventListener("click", function (e) {
+    moviesContainer.addFavourite()
+    console.log()
+  })
+}
+
+// let button = document.getElementById('show-favourites')
+document.getElementById('show-favourites').addEventListener('click', async () => {
+  let res = await moviesContainer.getFAvourites()
+  res.forEach(res => {
+    console.log(res)
+    moviesContainer.setMovieCardView(res.movie, "favourites-container")
+  });
+})

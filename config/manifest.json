@@ -1,10 +1,9 @@
 {
     "name": "CinefilAR",
     "short_name": "CAR",
-    "theme_color": "#fff",
-    "background_color": "#fff",
+    "theme_color": "#000",
+    "background_color": "#000",
     "display": "standalone",
-    "orientation": "",
     "scope": "/",
     "start_url": "/"
   }

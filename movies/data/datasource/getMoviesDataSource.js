@@ -4,6 +4,6 @@ export class GetMoviesDataSource {
     }
 
     async getMoviesResponse(movie) {
-        return await this.moviesApiCall.getMovie(movie)
+        return await this.moviesApiCall.getMovie(movie);
     }
 }

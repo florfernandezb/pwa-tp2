@@ -7,9 +7,17 @@
 }
 
 .card {
-  width: 18rem;
+  width: 30rem;
 }
 
 .card div {
   padding: 1em;
+}
+
+#movie-container {
+  display: inline-block;
+}
+
+#favourites-container {
+  display: inline-block;
 }

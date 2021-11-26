@@ -4,17 +4,25 @@ import { MovieRepository } from "./data/repository/movieRepository.js";
 import { MovieUseCase } from "./useCase/movieUseCase.js"
 import { MovieCardView } from "./views/movieCardView.js"
 import { MovieDto } from "./data/dto/MovieDto.js";
+import { IndexedDb } from "./utils/indexedDb.js"
+import { FavouritesMovies } from "./views/favouritesMovies.js";
 
 export class MoviesContainer {
     apiCall = new OmdbApiCall();
     dataSource = new GetMoviesDataSource(this.apiCall);
     repository = new MovieRepository(this.dataSource);
-    movie = new MovieUseCase(this.repository);
+    useCase = new MovieUseCase(this.repository);
     cardView = new MovieCardView();
     movieDto = new MovieDto();
+    db = new IndexedDb()
+    favourites = new FavouritesMovies();
+    
+    movieHistory = [];
+    currentSearch;
 
-    getMovies() {
-        return this.movie.getMovie()
+    async getMovies(movie) {
+        this.currentSearch = this.createMovieDto(await this.useCase.invoke(movie));
+        return this.currentSearch
     }
 
     createMovieDto(apiResponse) {
@@ -33,11 +41,20 @@ export class MoviesContainer {
         return this.movieDto
     }
 
-    getMovieCardView(movie) {
-        return this.cardView.createMovieCard(movie)
+    setMovieCardView(movie, divId) {
+        return this.cardView.createMovieCard(movie, divId)
     }
 
-    getClearMovie() {
-        return this.cardView.clearSetup()
+    addFavourite(){
+        this.favourites.addFavourite(this.currentSearch)
     }
+
+    getFAvourites() {
+        return this.favourites.getFavourites()
+    }
+
+    cleanScreen() {
+        this.cardView.destroyView()
+    }
+
 }
