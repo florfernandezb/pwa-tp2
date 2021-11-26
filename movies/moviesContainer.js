@@ -8,7 +8,7 @@ import { IndexedDb } from "./utils/indexedDb.js"
 import { FavouritesMovies } from "./views/favouritesMovies.js";
 import { OnClickListener } from "./views/onClickListener.js";
 
-export class MoviesContainer extends OnClickListener{
+export class MoviesContainer extends OnClickListener {
     apiCall = new OmdbApiCall();
     dataSource = new GetMoviesDataSource(this.apiCall);
     repository = new MovieRepository(this.dataSource);
@@ -17,7 +17,7 @@ export class MoviesContainer extends OnClickListener{
     movieDto = new MovieDto();
     db = new IndexedDb()
     favourites = new FavouritesMovies();
-    
+
     movieHistory = [];
     currentSearch;
 
@@ -39,27 +39,35 @@ export class MoviesContainer extends OnClickListener{
         this.movieDto.runtime = apiResponse.Runtime;
         this.movieDto.score = apiResponse.Ratings[0].Value;
         this.movieDto.id = apiResponse.imdbID;
-        return this.movieDto
+        return this.movieDto;
     }
 
     setMovieCardView(movie, divId) {
-        return this.cardView.createMovieCard(movie, divId)
+        return this.cardView.createMovieCard(movie, divId);
     }
 
-    addFavourite(){
-        this.favourites.addFavourite(this.currentSearch)
+    addFavourite() {
+        this.favourites.addFavourite(this.currentSearch);
     }
 
-    deleteElement(id){
-        this.favourites.deleteFavourite(id)
+    deleteElement(id) {
+        this.cardView.deleteElement(id)
+        this.favourites.deleteFavouriteFromIndexed(id);
     }
 
     getFAvourites() {
-        return this.favourites.getFavourites()
+        return this.favourites.getFavourites();
     }
 
     cleanScreen() {
-        this.cardView.destroyView()
+        this.cardView.destroyView();
+    }
+
+    showToast(msg) {
+        let toast = document.getElementById("toast");
+        toast.className = "show";
+        toast.textContent = msg;
+        setTimeout(function () { toast.className = toast.className.replace("show", ""); }, 3000);
     }
 
 }

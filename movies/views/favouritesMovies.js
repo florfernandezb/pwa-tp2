@@ -26,13 +26,13 @@ export class FavouritesMovies {
         return favourites
     }
 
-    deleteFavourite(id) {
-        this.favouritesDb.favourites_movies.where('_id').equals(id).delete()
-            .then(console.log("aquitoy"));
+    deleteFavouriteFromIndexed(id) {
+        let db = this.favouritesDb.favourites_movies
+        db.where('_id').equals(id).delete()
+            .then(function() {
+                console.log("que es esto? ", db.toArray())
+            });
 
     }
 
-    refreshView() {
-        console.log("refresh view")
-    }
 }

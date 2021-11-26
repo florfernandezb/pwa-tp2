@@ -9,9 +9,10 @@ export class MovieCardView {
             let divCard = document.createElement('div');
             let img = document.createElement('img');
             let divBody = document.createElement('div');
-            let score = document.createElement('p');
             let h2 = document.createElement('h2');
             let p = document.createElement('p');
+            let score = document.createElement('p');
+            let small = document.createElement('small')
             let a = document.createElement('a');
 
             divCard.setAttribute('class', 'card');
@@ -21,11 +22,14 @@ export class MovieCardView {
             divBody.setAttribute('class', 'card-body');
             h2.setAttribute('class', 'card-title');
             p.setAttribute('class', 'card-text');
+            score.setAttribute('class', 'card-text');
+            small.setAttribute('class', 'text-muted score')
             a.setAttribute('class', 'btn btn-primary cardBtn');
 
-            divBody.append(h2, p, a);
+            score.appendChild(small)
+
+            divBody.append(h2, p, score, a);
             divCard.appendChild(img);
-            divCard.appendChild(score);
             divCard.appendChild(divBody);
             container.appendChild(divCard);
         }
@@ -64,8 +68,8 @@ export class MovieCardView {
         synopsis = container.querySelector('p');
         synopsis.textContent = movie.plot;
 
-        score = container.querySelector('.score')
-        score = movie.score;
+        score = container.querySelector('.score');
+        score.textContent = `score ${movie.score}`;
 
     }
 
@@ -83,6 +87,13 @@ export class MovieCardView {
                 button.setAttribute('class', "btn btn-danger delete cardBtn");
                 button.innerHTML = "Quitar de favoritos";
                 return button;
+        }
+    }
+
+    deleteElement(id) {
+        let card = document.getElementById(id)
+        if(card) {
+            card.remove();
         }
     }
 

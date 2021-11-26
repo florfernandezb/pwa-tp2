@@ -8,7 +8,7 @@
   <meta name="author" content="">
   <link rel="manifest" href="manifest.json" crossorigin="use-credentials">
   <script src="https://unpkg.com/dexie@latest/dist/dexie.js"></script>
-  <title>Sticky Footer Navbar Template for Bootstrap</title>
+  <title>Florencia Fernández Bugna | DWN3A | PWA</title>
 
   <!-- Bootstrap core CSS -->
   <link href="/css/bootstrap.min.css" rel="stylesheet">
@@ -24,7 +24,7 @@
   <header>
     <!-- Fixed navbar -->
     <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark" id="navbar-top">
-      <a class="navbar-brand" href="#">Fixed navbar</a>
+      <a class="navbar-brand" href="#">StrimioDB</a>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse"
         aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
@@ -52,16 +52,43 @@
 
   <!-- Begin page content -->
   <main role="main" class="container" id="main-container">
-    <div id="movie-container">
-      <div class="card">
-        <img class="card-img-top">
-        <div class="card-body" id="movie-card">
-          <h2 class="card-title"></h2>
-          <p class="card-text"></p>
-          <a id="favourite" class="btn btn-primary favourite"></a>
+    
+    <div class="spinner"></div>
+    
+    <div id="status"></div>
+    <div id="movie-container" class="row">
+      <div class="card mb-3 col-12">
+        <div class="row no-gutters">
+          <div class="col-md-4">
+            <img class="card-img" >
+          </div>
+          <div class="col-md-8">
+            <div class="card-body">
+              <h2 class="card-title"></h2>
+              <p class="card-text"></p>
+              <p class="card-text"><small class="text-muted"></small></p>
+              <p class="card-text"><small class="text-muted score"></small></p>
+              <a id="favourite" class="btn btn-primary favourite"></a>
+            </div>
+          </div>
         </div>
       </div>
     </div>
+    <div id="toast"></div>
+    <!-- <div class="card mb-3" style="max-width: 540px;">
+      <div class="row no-gutters">
+        <div class="col-md-4">
+          <img src="..." class="card-img" alt="...">
+        </div>
+        <div class="col-md-8">
+          <div class="card-body">
+            <h5 class="card-title">Card title</h5>
+            <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+            <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+          </div>
+        </div>
+      </div>
+    </div> -->
   </main>
 
   <footer class="footer">

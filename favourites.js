@@ -5,17 +5,20 @@ moviesContainer.favourites.init();
 
 window.onload = async function () {
   let fav = await moviesContainer.getFAvourites();
-  fav.forEach(res => {
-    console.log(res);
-    moviesContainer.setMovieCardView(res.movie, "favourites-container");
-  });
+  fav.length > 0 ? fav.forEach(res => {
 
-  document.querySelector('.delete').addEventListener('click', function name(e) {
-    console.log(e.target.id);
-    let id = e.target.id.split('button-')
-    console.log(id)
-      moviesContainer.deleteElement(id[1]);
-  })
+    moviesContainer.setMovieCardView(res.movie, "favourites-container");
+
+    for(let movie of document.querySelectorAll('.delete')){
+      movie.addEventListener('click', async function name(e) {
+        let id = e.target.id.split('button-')
+        moviesContainer.deleteElement(id[1]);
+  
+        moviesContainer.showToast("Eliminado de favoritos")
+  
+      })
+    }
+  }) : document.querySelector('#emptyState').textContent = "No hay películas agregadas a favoritas"
 }
 
 // document.getElementById('show-favourites').addEventListener('click', async () => {
