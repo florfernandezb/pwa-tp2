@@ -2,7 +2,7 @@ import { UpcomingsContainer } from "./upcomings/upcomingsContainer.js";
 import { MoviesContainer } from "./movies/moviesContainer.js";
 
 const input = document.getElementById("input-search");
-const searchButton = document.getElementById("button-search")
+const searchButton = document.getElementById("button-search");
 
 const upcomingsContainer = new UpcomingsContainer();
 const moviesContainer = new MoviesContainer();
@@ -10,12 +10,11 @@ const moviesContainer = new MoviesContainer();
 init()
 
 async function init() {
-  moviesContainer.favourites.init();
 
   registerServiceWorker();
 
-  let response = await upcomingsContainer.getUpcomings()
-  console.log("init response", response)
+  let response = await upcomingsContainer.getUpcomings();
+  console.log("init response", response);
 
 }
 
@@ -37,7 +36,7 @@ input.addEventListener("keyup", function (event) {
 
 searchButton.addEventListener("click", function (event) {
   event.preventDefault();
-  getPelicula()
+  getPelicula();
 })
 
 async function getPelicula() {
@@ -55,18 +54,6 @@ async function getPelicula() {
 
 }
 
-for (let btn of document.querySelectorAll('.favourite')) {
-  btn.addEventListener("click", function (e) {
-    moviesContainer.addFavourite()
-    console.log()
-  })
-}
 
-// let button = document.getElementById('show-favourites')
-document.getElementById('show-favourites').addEventListener('click', async () => {
-  let res = await moviesContainer.getFAvourites()
-  res.forEach(res => {
-    console.log(res)
-    moviesContainer.setMovieCardView(res.movie, "favourites-container")
-  });
-})
+
+

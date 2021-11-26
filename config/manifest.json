@@ -1,9 +1,16 @@
 {
-    "name": "CinefilAR",
-    "short_name": "CAR",
-    "theme_color": "#000",
-    "background_color": "#000",
-    "display": "standalone",
-    "scope": "/",
-    "start_url": "/"
-  }
+  "name": "Cuevana4",
+  "short_name": "C4",
+  "theme_color": "#2D00F7",
+  "background_color": "#2D00F7",
+  "display": "standalone",
+  "orientation": "landscape",
+  "scope": "/",
+  "start_url": "/index.html",
+  "icons": [{
+    "src": "/res/favicon.png",
+    "sizes": "32x32",
+    "type": "image/png"
+}
+]
+}

@@ -36,7 +36,7 @@ export class MoviesContainer {
         this.movieDto.language = apiResponse.Language;
         this.movieDto.plot = apiResponse.Plot;
         this.movieDto.runtime = apiResponse.Runtime;
-        this.movieDto.score = apiResponse.Metascore;
+        this.movieDto.score = apiResponse.Ratings[0].Value;
         this.movieDto.id = apiResponse.imdbID;
         return this.movieDto
     }
@@ -47,6 +47,10 @@ export class MoviesContainer {
 
     addFavourite(){
         this.favourites.addFavourite(this.currentSearch)
+    }
+
+    deleteElement(id){
+        this.favourites.deleteFavourite(id)
     }
 
     getFAvourites() {

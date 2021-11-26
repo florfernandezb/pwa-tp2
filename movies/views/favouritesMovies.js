@@ -27,8 +27,8 @@ export class FavouritesMovies {
     }
 
     deleteFavourite(id) {
-        db.todo.where('_id').equals(id).delete()
-            .then(this.refreshView);
+        this.favouritesDb.favourites_movies.where('_id').equals(id).delete()
+            .then(console.log("listo"));
 
     }
 
