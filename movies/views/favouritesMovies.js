@@ -2,7 +2,7 @@ export class FavouritesMovies {
 
     init() {
         this.favouritesDb = new Dexie("favourites_movies");
-        this.favouritesDb.version(1).stores({ favourites_movies: '_id', favourites_movies_title: 'title' });
+        this.favouritesDb.version(1).stores({ favourites_movies: '_id', favourites_movies_title: 'movie_title' });
         this.favouritesDb.open()
             .then(console.log("se agregó a favorito indexed"));
     }
@@ -28,7 +28,7 @@ export class FavouritesMovies {
 
     deleteFavourite(id) {
         this.favouritesDb.favourites_movies.where('_id').equals(id).delete()
-            .then(console.log("listo"));
+            .then(console.log("aquitoy"));
 
     }
 

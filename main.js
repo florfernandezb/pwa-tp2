@@ -3,6 +3,7 @@ import { MoviesContainer } from "./movies/moviesContainer.js";
 
 const input = document.getElementById("input-search");
 const searchButton = document.getElementById("button-search");
+// const fav = document.getElementById("favourite");
 
 const upcomingsContainer = new UpcomingsContainer();
 const moviesContainer = new MoviesContainer();
@@ -10,6 +11,7 @@ const moviesContainer = new MoviesContainer();
 init()
 
 async function init() {
+  moviesContainer.favourites.init();
 
   registerServiceWorker();
 
@@ -42,7 +44,7 @@ searchButton.addEventListener("click", function (event) {
 async function getPelicula() {
   if (input.value != "") {
     // validateError();
-    moviesContainer.cleanScreen();
+    // moviesContainer.cleanScreen();
     let movie = await moviesContainer.getMovies(input.value);
     moviesContainer.setMovieCardView(movie, "movie-container");
     input.value = "";
@@ -53,10 +55,7 @@ async function getPelicula() {
   }
 }
 
-let favourites = document.querySelectorAll('.favourite')
-for (let btn of favourites) {
-  btn.addEventListener("click", function (e) {
-    moviesContainer.addFavourite();
-  });
-
-};
+document.getElementById("favourite").addEventListener("click", function (e) {
+  moviesContainer.addFavourite();
+  console.log();
+})

@@ -6,8 +6,9 @@ import { MovieCardView } from "./views/movieCardView.js"
 import { MovieDto } from "./data/dto/MovieDto.js";
 import { IndexedDb } from "./utils/indexedDb.js"
 import { FavouritesMovies } from "./views/favouritesMovies.js";
+import { OnClickListener } from "./views/onClickListener.js";
 
-export class MoviesContainer {
+export class MoviesContainer extends OnClickListener{
     apiCall = new OmdbApiCall();
     dataSource = new GetMoviesDataSource(this.apiCall);
     repository = new MovieRepository(this.dataSource);
