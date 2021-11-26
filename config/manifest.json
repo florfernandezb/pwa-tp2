@@ -6,11 +6,10 @@
   "display": "standalone",
   "orientation": "landscape",
   "scope": "/",
-  "start_url": "/index.html",
+  "start_url": "../index.html",
   "icons": [{
-    "src": "/res/favicon.png",
+    "src": "../res/favicon.png",
     "sizes": "32x32",
     "type": "image/png"
-}
-]
+  }]
 }
