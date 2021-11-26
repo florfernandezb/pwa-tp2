@@ -18,7 +18,7 @@ export class MovieCardView {
         divBody.setAttribute('class', 'card-body');
         h2.setAttribute('class', 'card-title');
         p.setAttribute('class', 'card-text');
-        // a.setAttribute('class', 'btn btn-primary cardBtn');
+        a.setAttribute('class', 'btn btn-primary cardBtn');
 
         divBody.append(h2, p, a);
         divCard.appendChild(img);
@@ -70,12 +70,18 @@ export class MovieCardView {
             case "movie-container":
                 button.setAttribute('class', 'btn btn-primary favourite cardBtn');
                 button.innerHTML = "Agregar a favoritos";
+                button.onclick = this.movieSelected(movie)
                 return button;
             case 'favourites-container':
                 button.setAttribute('class', "btn btn-danger delete cardBtn");
                 button.innerHTML = "Quitar de favoritos";
                 return button;
         }
+    }
+
+    movieSelected(movie) {
+        console.log("movie selected")
+        return movie;
     }
 
     destroyView() {

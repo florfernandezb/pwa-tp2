@@ -51,9 +51,12 @@ async function getPelicula() {
     // validateError();
     // showError("Please enter a city");
   }
-
 }
 
+let favourites = document.querySelectorAll('.favourite')
+for (let btn of favourites) {
+  btn.addEventListener("click", function (e) {
+    moviesContainer.addFavourite();
+  });
 
-
-
+};
